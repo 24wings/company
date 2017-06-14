@@ -2,10 +2,10 @@ import Router = require('koa-router');
 import {userModel} from '../models';
 
 var homeRouter = new Router();
-homeRouter.get('/home/',async(ctx,next)=>{
+homeRouter.get('/',async(ctx,next)=>{
     //返回所有的用户
     var users = await userModel.find().exec();
-    await ctx.render('home',{
+    await ctx.render('index',{
         title:'主页',
         fruits:['苹果','香蕉','荔枝','龙眼'],
         users:users

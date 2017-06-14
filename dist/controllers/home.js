@@ -12,10 +12,10 @@ const Router = require("koa-router");
 const models_1 = require("../models");
 var homeRouter = new Router();
 exports.homeRouter = homeRouter;
-homeRouter.get('/home/', (ctx, next) => __awaiter(this, void 0, void 0, function* () {
+homeRouter.get('/', (ctx, next) => __awaiter(this, void 0, void 0, function* () {
     //返回所有的用户
     var users = yield models_1.userModel.find().exec();
-    yield ctx.render('home', {
+    yield ctx.render('index', {
         title: '主页',
         fruits: ['苹果', '香蕉', '荔枝', '龙眼'],
         users: users

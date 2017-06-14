@@ -1,0 +1,758 @@
+{% extends './layout/base.html'%} {%block content%} {%include './layout/navbar.html'%}
+<style>
+    .nav>li>a {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    
+    .middle-nav-ul-li {
+        margin: 0 10px
+    }
+    
+    #sign-up-item {
+        margin-right: 20px;
+    }
+    
+    #sign-in-item {
+        margin-right: 20px;
+    }
+    
+    @media (max-width: 767px) {
+        .nav>li>a {
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+        #sign-up-item {
+            margin-right: 0px;
+            padding-left: 5px;
+        }
+        #sign-in-item {
+            margin-right: 0px;
+            padding-left: 5px;
+        }
+    }
+</style>
+<script>
+    jQuery.extend(jQuery.fn.pickadate.defaults, {
+        monthsFull: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+        monthsShort: ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'],
+        weekdaysFull: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+        weekdaysShort: ['日', '一', '二', '三', '四', '五', '六'],
+        today: '今日',
+        clear: '清除',
+        close: '关闭',
+        firstDay: 1,
+        format: 'yyyy 年 mm 月 dd 日',
+        formatSubmit: 'yyyy/mm/dd'
+    });
+
+    jQuery.extend(jQuery.fn.pickatime.defaults, {
+        clear: '清除'
+    });
+</script>
+<div data='{"id":174247,"email":"2121718893@qq.com","created_at":"2017-02-06T01:38:36.000Z","updated_at":"2017-06-14T09:06:47.000Z","phone_number":"13419597065","unconfirmed_phone_number":null,"otp_secret_key":null,"second_factor_attempts_count":0,"name":"杨杰","customer_id":354066,"referral_id":null,"wx_open_id":null,"source":null,"campaign":"","wx_union_id":null,"referraled_id":""}'
+    id='user-data'></div>
+<div data='zh' id='locale-name-data' style='display: none'></div>
+<div data='{"id":14983774,"created_at":"2017-06-14T13:49:23.000Z","updated_at":"2017-06-14T13:49:23.000Z","item_ids":[],"productsTotal":0.0,"utensilsTotal":0,"earliestDeliveryDate":null,"undeliverDate":{"1":[],"2":[],"3":[],"4":[]}}' id='shopping-cart-data'></div>
+<div data='{"id":1,"chinese_name":"北京"}' id='city-data'></div>
+<div data='2015/03/14 15:09:00' id='activity-start-at'></div>
+<div data='2015/04/02' id='activity-20150402-start'></div>
+<div data='2015/04/10' id='activity-20150402-end'></div>
+<div data='2015/07/07' id='activity-20150710-start'></div>
+<div data='2015/07/20' id='activity-20150710-end'></div>
+<div class='hidden-xs navbar navbar-default navbar-fixed-top navbar-static-top' role='navigation'>
+    <div class='container' style='padding-right: 0px;padding-left: 0px;'>
+        <div class='navbar-header'>
+            <div class='navbar-brand'>
+                <!-- /%a{href: "/"}= image_tag('logo20170526.png', style: "min-width: 205px;") -->
+                <a href='/'><img alt="Logo normal" src="/assets/logo-normal-b1767a34a2e4c88666d91c26c01bdd09.png" style="min-width: 205px;" /></a>
+            </div>
+        </div>
+        <ul class='nav navbar-nav'>
+            <li class='v2_locale_icon'>
+                <a class='pc-locale-icon' href='/apis/set_current_locale?locale_name=en'>English</a>
+            </li>
+            <li class='dropdown'>
+                <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
+                    <span class='hidden-sm'>当前城市：</span> 北京
+                    <span class='caret'></span>
+                </a>
+                <ul class='dropdown-menu' role='menu'>
+                    <li>
+                        <a href='/cities/shanghai'>上海</a>
+                    </li>
+                    <li>
+                        <a href='/cities/tianjin'>天津</a>
+                    </li>
+                    <li>
+                        <a href='/cities/hangzhou'>杭州</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <ul class='nav navbar-nav middle-nav-ul hidden-xs'>
+            <li class='middle-nav-ul-li'>
+                |
+            </li>
+            <li class='dropdown'>
+                <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
+产品列表
+<span class='caret'></span>
+</a>
+                <ul class='dropdown-menu' role='menu'>
+                    <li>
+                        <a href='/cities/beijing/categories/disney'>迪士尼</a>
+                    </li>
+                    <li>
+                        <a href='/cities/beijing/categories/cakes'>蛋糕</a>
+                    </li>
+                    <li>
+                        <a href='/cities/beijing/categories/cupcakes'>纸杯蛋糕</a>
+                    </li>
+                    <li>
+                        <a href='/cities/beijing/categories/gift-box'>礼盒</a>
+                    </li>
+                    <li>
+                        <a href='/cities/beijing/categories/pies'>派</a>
+                    </li>
+                    <li>
+                        <a href='/cities/beijing/categories/tartlets'>挞</a>
+                    </li>
+                    <li>
+                        <a href='/cities/beijing/categories/vegan'> 素食</a>
+                    </li>
+                    <li>
+                        <a href='/card'>礼品卡</a>
+                    </li>
+                </ul>
+            </li>
+            <li class='middle-nav-ul-li'>
+                |
+            </li>
+            <li>
+                <a class='navbar-font-color' href='/stores'>门店</a>
+            </li>
+            <li class='middle-nav-ul-li'>
+                |
+            </li>
+            <li>
+                <a class='navbar-font-color' href='/pages/bjdinggouxuzhi'>配送须知</a>
+            </li>
+            <li class='middle-nav-ul-li'>
+                |
+            </li>
+            <li>
+                <a class='navbar-font-color' href='/events'>活动</a>
+            </li>
+            <li class='middle-nav-ul-li'>
+                |
+            </li>
+            <li class='dropdown'>
+                <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
+关于
+<span class='caret'></span>
+</a>
+                <ul class='dropdown-menu' role='menu'>
+                    <li>
+                        <a href='/pages/huiyuan'>会员</a>
+                    </li>
+                    <li>
+                        <a href='/pages/ninhao'>我们</a>
+                    </li>
+                    <li>
+                        <a href='/pages/lipinka'>礼品卡</a>
+                    </li>
+                </ul>
+            </li>
+            <li class='middle-nav-ul-li'>
+                |
+            </li>
+            <li>
+                <a class='navbar-font-color' href='/wedding'>
+甜品台
+<sup style='color: #9dc819;font-weight: bold'><img alt="New icon" src="/assets/sell/new_icon-1aa4c0666ed80fa69470554de82acf5c.png" /></sup>
+</a>
+            </li>
+        </ul>
+        <ul class='nav navbar-nav navbar-right hidden-xs'>
+            <li class='dropdown' id='welcome-item'>
+                <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
+                    <span class='hidden-sm'>您好， 杨杰</span>
+                    <span class='visible-sm'>
+<i class="fa fa-user"></i>
+</span>
+                    <span class='hidden-sm caret'></span>
+                </a>
+                <ul class='dropdown-menu' role='menu'>
+                    <li>
+                        <a href='/orders'>我的订单</a>
+                    </li>
+                    <li>
+                        <a href='/cards/customer_info'>我的会员卡</a>
+                    </li>
+                    <li>
+                        <a href='/cards/list'>我的礼品卡</a>
+                    </li>
+                    <li>
+                        <a href='/points'>我的积分</a>
+                    </li>
+                    <li>
+                        <a href='/coupons'>我的礼券</a>
+                    </li>
+                    <li>
+                        <a data-method='delete' data-no-turbolink href='/users/sign_out' rel='nofollow'>= t('views.sign.logout')</a>
+                    </li>
+                </ul>
+            </li>
+            <li id='shopping-cart-summary-nav'>
+                <a class='navbar-font-color' href='/shopping-cart'>
+                    <i class="fa fa-shopping-cart"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class='navbar navbar-default navbar-static-top navbar-fixed-top visible-xs mobile-header-nav' role='navigation'>
+    <div class='container' id='mobile-header-nav'>
+        <div class='navbar-header'>
+            <span id='toggle-mobile-dropdown-nav' style='width: 18%;text-align: left;'>杨杰</span>
+            <div class='navbar-brand' style='width: 68%;text-align: center;padding-left: 5px;padding-right: 5px;'>
+                <!-- /%a{href: "/"}= image_tag('logom20170526.png') -->
+                <a href='/'><img alt="Logo mnormal" src="/assets/logo-mnormal-332058c6f945146de77371eaf579bb7d.png" /></a>
+                <a class='mb-locale-icon' href='/apis/set_current_locale?locale_name=en'>English</a>
+            </div>
+            <!-- /%a.navbar-brand{href: "/"}= image_tag('logo-text.png') -->
+            <!-- /%a.navbar-brand{href: "/", style: "padding-top:12px;"}= image_tag('logo-text-new.png',style: "max-height:20px;") -->
+            <!-- /%a.navbar-brand{href: "/"}= image_tag('logo-heisenlin.png') -->
+            <!-- /%a.navbar-brand{href: "/"}= image_tag('logo-shumei.png') -->
+            <!-- /%a.navbar-brand{href: "/"}= image_tag('logo-frog.png') -->
+            <!-- /%a.navbar-brand{href: "/"}= image_tag('logo-qixi-2015.png') -->
+            <a class='toggle-mobile-telephone-nav visible-xs' href='tel:4008314159' style='width: 18%;text-align: right;margin-left: -4%'>
+                <i class='fa fa-phone pantry-green-font'></i>
+            </a>
+        </div>
+        <ul class='nav navbar-nav navbar-right' id='mobile-navbar-right'>
+            <li class='dropdown' id='welcome-item'>
+                <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
+                    <span class='hidden-sm'>您好， 杨杰</span>
+                    <span class='visible-sm'>
+<i class="fa fa-user"></i>
+</span>
+                    <span class='hidden-sm caret'></span>
+                </a>
+                <ul class='dropdown-menu' role='menu'>
+                    <li>
+                        <a href='/orders'>我的订单</a>
+                    </li>
+                    <li>
+                        <a href='/cards/customer_info'>我的会员卡</a>
+                    </li>
+                    <li>
+                        <a href='/cards/list'>我的礼品卡</a>
+                    </li>
+                    <li>
+                        <a href='/points'>我的积分</a>
+                    </li>
+                    <li>
+                        <a href='/coupons'>我的礼券</a>
+                    </li>
+                    <li>
+                        <a data-method='delete' data-no-turbolink href='/users/sign_out' rel='nofollow'>= t('views.sign.logout')</a>
+                    </li>
+                </ul>
+            </li>
+            <li class='dropdown hidden-md hidden-sm visible-xs'>
+                <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
+产品列表
+<span class='caret'></span>
+</a>
+                <ul class='dropdown-menu' role='menu'>
+                    <li>
+                        <a href='/cities/beijing/categories/disney'>迪士尼</a>
+                    </li>
+                    <li>
+                        <a href='/cities/beijing/categories/cakes'>蛋糕</a>
+                    </li>
+                    <li>
+                        <a href='/cities/beijing/categories/cupcakes'>纸杯蛋糕</a>
+                    </li>
+                    <li>
+                        <a href='/cities/beijing/categories/gift-box'>礼盒</a>
+                    </li>
+                    <li>
+                        <a href='/cities/beijing/categories/pies'>派</a>
+                    </li>
+                    <li>
+                        <a href='/cities/beijing/categories/tartlets'>挞</a>
+                    </li>
+                    <li>
+                        <a href='/cities/beijing/categories/vegan'> 素食</a>
+                    </li>
+                    <li>
+                        <a href='/card'>礼品卡</a>
+                    </li>
+                </ul>
+            </li>
+            <li class='dropdown hidden-md hidden-sm visible-xs'>
+                <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
+当前城市：
+<span class='caret'></span>
+</a>
+                <ul class='dropdown-menu' role='menu'>
+                    <li>
+                        <a href='/cities/beijing'>北京</a>
+                    </li>
+                    <li>
+                        <a href='/cities/shanghai'>上海</a>
+                    </li>
+                    <li>
+                        <a href='/cities/tianjin'>天津</a>
+                    </li>
+                    <li>
+                        <a href='/cities/hangzhou'>杭州</a>
+                    </li>
+                </ul>
+            </li>
+            <li class='dropdown hidden-md hidden-sm visible-xs'>
+                <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
+寻找我们
+<span class='caret'></span>
+</a>
+                <ul class='dropdown-menu' role='menu'>
+                    <li>
+                        <a href='/stores'>门店</a>
+                    </li>
+                    <li>
+                        <a href='/pages/bjdinggouxuzhi'>配送须知</a>
+                    </li>
+                </ul>
+            </li>
+            <li class='dropdown hidden-md hidden-sm visible-xs'>
+                <a class='navbar-font-color' href='/events'>活动</a>
+            </li>
+            <li class='dropdown hidden-md hidden-sm visible-xs'>
+                <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
+关于
+<span class='caret'></span>
+</a>
+                <ul class='dropdown-menu' role='menu'>
+                    <li>
+                        <a href='/pages/huiyuan'>会员</a>
+                    </li>
+                    <li>
+                        <a href='/pages/ninhao'>我们</a>
+                    </li>
+                    <li>
+                        <a href='/pages/lipinka'>礼品卡</a>
+                    </li>
+                </ul>
+            </li>
+            <li class='dropdown hidden-md hidden-sm visible-xs'>
+                <a class='navbar-font-color' href='/wedding'>
+甜品台
+<sup style='color: #9dc819;font-weight: bold'><img alt="New icon" src="/assets/sell/new_icon-1aa4c0666ed80fa69470554de82acf5c.png" /></sup>
+</a>
+            </li>
+            <!-- /%li.dropdown.hidden-md.hidden-sm.visible-xs -->
+            <!-- /  %a.white{href: "/pages/zhaopin"} 加入我们 -->
+            <li id='shopping-cart-summary-nav'>
+                <a class='navbar-font-color' href='/shopping-cart'>
+                    <i class="fa fa-shopping-cart"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class='container pantry-height-5px'></div>
+    <a href='/'>
+        <div class='col-xs-3 mobile-nav-index'>
+            <div class='col-xs-12 no-padding'>
+                <i class='fa fa-home pantry-font-200size'></i>
+            </div>
+        </div>
+    </a>
+    <a href='/cities/beijing/categories/cakes'>
+        <div class='col-xs-3 mobile-nav-index'>
+            <div class='col-xs-12 no-padding'>
+                <i class='fa fa-list-alt pantry-font-200size'></i>
+            </div>
+        </div>
+    </a>
+    <a href='/crm'>
+        <div class='col-xs-3 mobile-nav-index'>
+            <div class='col-xs-12 no-padding'>
+                <i class='fa fa-user pantry-font-200size'></i>
+            </div>
+        </div>
+    </a>
+    <a href='/shopping-cart'>
+        <div class='col-xs-3 mobile-nav-index'>
+            <div class='col-xs-12 no-padding'>
+                <i class='fa fa-shopping-cart pantry-font-200size'></i>
+            </div>
+        </div>
+    </a>
+</div>
+<div class='hidden-xs' style='height: 50px;'></div>
+<div class='visible-xs' style='height: 85px;'></div>
+<div data='2015/08/05' id='activity-20150805-start'></div>
+<div data='2015/08/22' id='activity-20150805-end'></div>
+<div class='swiper-container pc-slideshows-swiper' id='front-page-carousel'>
+    <div class='swiper-wrapper'>
+        <div class='swiper-slide'>
+            <a href='/cities/beijing/categories/pies/products/cherry-cheese'>
+                <img src='/system/city_slideshows/slide_images/000/000/712/original/%E6%A8%B1%E6%A1%83%E4%B9%B3%E9%85%AA%E6%B4%BE%E8%BD%AE%E6%92%AD%E5%9B%BE-%E5%AE%98%E7%BD%91PC%E7%AB%AF-%282%29.jpg?1496541218'>
+            </a>
+        </div>
+        <div class='swiper-slide'>
+            <a href='/cities/beijing/categories/cakes/products/durian-cheese-mousse-cake'>
+                <img src='/system/city_slideshows/slide_images/000/000/155/original/%E6%A6%B4%E8%8E%B2%E5%A4%A7%E8%9B%8B%E7%B3%95%E5%AE%98%E7%BD%91slideshow-pc%E7%AB%AF.jpg?1495767278'>
+            </a>
+        </div>
+        <div class='swiper-slide'>
+            <a href='/cities/beijing/categories/cupcakes/products/durian-cupcake'>
+                <img src='/system/city_slideshows/slide_images/000/000/150/original/%E6%A6%B4%E8%8E%B2%E7%BA%B8%E6%9D%AF%E5%AE%98%E7%BD%91%E8%BD%AE%E6%92%AD%E5%9B%BEpc%E7%AB%AF.jpg?1495767981'>
+            </a>
+        </div>
+        <div class='swiper-slide'>
+            <a href='/cities/beijing/categories/cakes/products/mango-cheese-mousse-cake'>
+                <img src='/system/city_slideshows/slide_images/000/000/650/original/%E8%8A%92%E6%9E%9C%E4%B9%B3%E9%85%AA%E6%85%95%E6%96%AF%E8%BD%AE%E6%92%AD%E5%9B%BE_-%E5%AE%98%E7%BD%91pc%E7%AB%AF.jpg?1493010049'>
+            </a>
+        </div>
+        <div class='swiper-slide'>
+            <a href='/cities/beijing/categories/cakes/products/mango-cloud-cake'>
+                <img src='/system/city_slideshows/slide_images/000/000/658/original/%E8%8A%92%E6%9E%9C%E7%A9%BA%E6%B0%94%E6%84%9F%E8%9B%8B%E7%B3%95%E5%AE%98%E7%BD%91%E8%BD%AE%E6%92%AD%E5%9B%BE-pc%E7%AB%AF.jpg?1492658158'>
+            </a>
+        </div>
+    </div>
+    <div class='swiper-pagination pc-swiper-pagination'></div>
+</div>
+<div class='swiper-container mobile-slideshows-swiper' id='mobile-front-page-carousel'>
+    <div class='swiper-wrapper'>
+        <div class='swiper-slide'>
+            <a href='/cities/beijing/categories/pies/products/cherry-cheese'>
+                <img src='/system/city_slideshows/slide_images/000/000/716/original/%E6%A8%B1%E6%A1%83%E4%B9%B3%E9%85%AA%E6%B4%BE%E8%BD%AE%E6%92%AD%E5%9B%BE-%E5%AE%98%E7%BD%91%E6%89%8B%E6%9C%BA%E7%AB%AF-%283%29.jpg?1496541351'>
+            </a>
+        </div>
+        <div class='swiper-slide'>
+            <a href='/cities/beijing/categories/cakes/products/durian-cheese-mousse-cake'>
+                <img src='/system/city_slideshows/slide_images/000/000/157/original/%E6%A6%B4%E8%8E%B2%E5%A4%A7%E8%9B%8B%E7%B3%95%E5%AE%98%E7%BD%91slideshow-%E6%89%8B%E6%9C%BA%E7%AB%AF.jpg?1495769105'>
+            </a>
+        </div>
+        <div class='swiper-slide'>
+            <a>
+                <img src='/system/city_slideshows/slide_images/000/000/152/original/%E6%A6%B4%E8%8E%B2%E7%BA%B8%E6%9D%AF%E5%AE%98%E7%BD%91%E8%BD%AE%E6%92%AD%E5%9B%BE-%E6%89%8B%E6%9C%BA%E7%AB%AF.jpg?1495768016'>
+            </a>
+        </div>
+        <div class='swiper-slide'>
+            <a href='/cities/beijing/categories/cakes/products/mango-cheese-mousse-cake'>
+                <img src='/system/city_slideshows/slide_images/000/000/651/original/%E8%8A%92%E6%9E%9C%E4%B9%B3%E9%85%AA%E6%85%95%E6%96%AF%E8%BD%AE%E6%92%AD%E5%9B%BE-%E6%89%8B%E6%9C%BA%E7%AB%AF.jpg?1492657777'>
+            </a>
+        </div>
+        <div class='swiper-slide'>
+            <a href='/cities/beijing/categories/cakes/products/mango-cloud-cake'>
+                <img src='/system/city_slideshows/slide_images/000/000/663/original/%E8%8A%92%E6%9E%9C%E7%A9%BA%E6%B0%94%E6%84%9F%E8%9B%8B%E7%B3%95%E5%AE%98%E7%BD%91%E8%BD%AE%E6%92%AD%E5%9B%BE-%E6%89%8B%E6%9C%BA%E7%89%88.jpg?1492658289'>
+            </a>
+        </div>
+    </div>
+    <div class='swiper-pagination mobile-swiper-pagination'></div>
+</div>
+<div class='container marketing center'>
+    <div class='row'>
+        <div class='front-page-header'>
+            <span class='caret caret-right'></span>
+            <b>
+<a href='/cities/beijing/categories/disney'>产品列表</a>
+</b>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-15 col-sm-15 col-xs-6'>
+            <div>
+                <a href='/cities/beijing/categories/disney'>
+                    <img alt='迪士尼' class='img-responsive' src='/system/product_categories/images/000/000/020/original/%E8%BF%AA%E5%A3%AB%E5%B0%BC%E7%BD%91%E9%A6%96%E9%A1%B5%E4%BA%A7%E5%93%81%E5%88%97%E8%A1%A8.png?1492681931'>
+                </a>
+            </div>
+            <a class='product-category-link' href='/cities/beijing/categories/disney'>
+迪士尼
+</a>
+        </div>
+        <div class='col-md-15 col-sm-15 col-xs-6'>
+            <div>
+                <a href='/cities/beijing/categories/gift-box'>
+                    <img alt='礼盒' class='img-responsive' src='/system/product_categories/images/000/000/016/original/%E7%A4%BC%E7%9B%92%E5%AE%98%E7%BD%91%E9%A6%96%E9%A1%B5%E4%BA%A7%E5%93%81%E5%88%97%E8%A1%A8.png?1492681964'>
+                </a>
+            </div>
+            <a class='product-category-link' href='/cities/beijing/categories/gift-box'>
+礼盒
+</a>
+        </div>
+        <div class='col-md-15 col-sm-15 col-xs-6'>
+            <div>
+                <a href='/cities/beijing/categories/cakes'>
+                    <img alt='蛋糕' class='img-responsive' src='/system/product_categories/images/000/000/002/original/%E8%8A%92%E6%9E%9C%E4%B9%B3%E9%85%AA%E6%85%95%E6%96%AF%E5%AE%98%E7%BD%91%E9%A6%96%E9%A1%B5%E4%BA%A7%E5%93%81%E5%88%97%E8%A1%A8.jpg?1496650730'>
+                </a>
+            </div>
+            <a class='product-category-link' href='/cities/beijing/categories/cakes'>
+蛋糕
+</a>
+        </div>
+        <div class='col-md-15 col-sm-15 col-xs-6'>
+            <div>
+                <a href='/cities/beijing/categories/tartlets'>
+                    <img alt='挞' class='img-responsive' src='/system/product_categories/images/000/000/004/original/%E6%8C%9E%E5%AE%98%E7%BD%91%E9%A6%96%E9%A1%B5%E4%BA%A7%E5%93%81%E5%88%97%E8%A1%A8.png?1492682020'>
+                </a>
+            </div>
+            <a class='product-category-link' href='/cities/beijing/categories/tartlets'>
+挞
+</a>
+        </div>
+        <div class='col-md-15 col-sm-15 col-xs-6 hidden-xs'>
+            <div>
+                <a href='/cities/beijing/categories/cupcakes'>
+                    <img alt='纸杯蛋糕' class='img-responsive' src='/system/product_categories/images/000/000/001/original/%E7%BA%B8%E6%9D%AF%E8%9B%8B%E7%B3%95%E9%A6%96%E9%A1%B5%E4%BA%A7%E5%93%81%E5%88%97%E8%A1%A8.png?1492682099'>
+                </a>
+            </div>
+            <a class='product-category-link' href='/cities/beijing/categories/cupcakes'>
+纸杯蛋糕
+</a>
+        </div>
+    </div>
+</div>
+<div class='container marketing center'>
+    <div class='row'>
+        <div class='front-page-header'>
+            <span class='caret caret-right'></span>
+            <b>新品推荐</b>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-3 col-sm-3 col-xs-6'>
+            <div class='front-page-product-set-image-container'>
+                <a href='/cities/beijing/categories/cupcakes/products/durian-cupcake'>
+                    <img alt='榴莲纸杯蛋糕' class='img-responsive' src='/system/product_sets/front_page_images/000/000/037/original/%E6%A6%B4%E8%8E%B2%E7%BA%B8%E6%9D%AF%E5%AE%98%E7%BD%91%E9%A6%96%E9%A1%B5%E6%96%B0%E5%93%81%E6%8E%A8%E8%8D%90.jpg?1495765025'>
+                </a>
+                <form accept-charset="UTF-8" action="/shopping-cart" class="front-page-cart-form hidden-xs" data-remote="true" method="post">
+                    <div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+                    <input name='authenticity_token' type='hidden' value='UHjWf0HJhp0c8ulfz8KSSdkA/5XvKJLwyCRdIr4Kbtc='>
+                    <input name='product_id' type='hidden' value='165'>
+                    <input class='shopping-cart-button' type='submit' value=''>
+                </form>
+
+            </div>
+            <div class='chinese-name'>
+                <a href='/cities/beijing/categories/cupcakes/products/durian-cupcake'>
+                    <h2 class='product-set-link'>榴莲纸杯蛋糕</h2>
+                </a>
+                <span class='size-and-price'>
+中号
+￥35
+</span>
+            </div>
+        </div>
+        <div class='col-md-3 col-sm-3 col-xs-6'>
+            <div class='front-page-product-set-image-container'>
+                <a href='/cities/beijing/categories/cakes/products/durian-cheese-mousse-cake'>
+                    <img alt='榴莲乳酪慕斯蛋糕' class='img-responsive' src='/system/product_sets/front_page_images/000/000/072/original/%E6%A6%B4%E8%8E%B2%E5%A4%A7%E8%9B%8B%E7%B3%95%E5%AE%98%E7%BD%91%E9%A6%96%E9%A1%B5%E6%96%B0%E5%93%81%E6%8E%A8%E8%8D%90.jpg?1495770090'>
+                </a>
+                <form accept-charset="UTF-8" action="/shopping-cart" class="front-page-cart-form hidden-xs" data-remote="true" method="post">
+                    <div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+                    <input name='authenticity_token' type='hidden' value='UHjWf0HJhp0c8ulfz8KSSdkA/5XvKJLwyCRdIr4Kbtc='>
+                    <input name='product_id' type='hidden' value='548'>
+                    <input class='shopping-cart-button' type='submit' value=''>
+                </form>
+
+            </div>
+            <div class='chinese-name'>
+                <a href='/cities/beijing/categories/cakes/products/durian-cheese-mousse-cake'>
+                    <h2 class='product-set-link'>榴莲乳酪慕斯蛋糕</h2>
+                </a>
+                <span class='size-and-price'>
+6吋
+￥249
+</span>
+            </div>
+        </div>
+        <div class='col-md-3 col-sm-3 col-xs-6'>
+            <div class='front-page-product-set-image-container'>
+                <a href='/cities/beijing/categories/pies/products/cherry-cheese'>
+                    <img alt='樱桃乳酪派' class='img-responsive' src='/system/product_sets/front_page_images/000/000/167/original/%E9%A6%96%E9%A1%B5%E6%96%B0%E5%93%81%E6%8E%A8%E8%8D%90.jpg?1496540099'>
+                </a>
+                <form accept-charset="UTF-8" action="/shopping-cart" class="front-page-cart-form hidden-xs" data-remote="true" method="post">
+                    <div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+                    <input name='authenticity_token' type='hidden' value='UHjWf0HJhp0c8ulfz8KSSdkA/5XvKJLwyCRdIr4Kbtc='>
+                    <input name='product_id' type='hidden' value='68'>
+                    <input class='shopping-cart-button' type='submit' value=''>
+                </form>
+
+            </div>
+            <div class='chinese-name'>
+                <a href='/cities/beijing/categories/pies/products/cherry-cheese'>
+                    <h2 class='product-set-link'>樱桃乳酪派</h2>
+                </a>
+                <span class='size-and-price'>
+9吋
+￥319
+</span>
+            </div>
+        </div>
+        <div class='col-md-3 col-sm-3 col-xs-6'>
+            <div class='front-page-product-set-image-container'>
+                <a href='/cities/beijing/categories/vegan/products/vegan-mini-cupcake-set'>
+                    <img alt='素食迷你纸杯礼盒' class='img-responsive' src='/system/product_sets/front_page_images/000/000/162/original/%E7%B4%A0%E9%A3%9F%E7%BA%B8%E6%9D%AF%E5%AE%98%E7%BD%91%E9%A6%96%E9%A1%B5%E6%96%B0%E5%93%81%E6%8E%A8%E8%8D%90.jpg?1492084509'>
+                </a>
+                <form accept-charset="UTF-8" action="/shopping-cart" class="front-page-cart-form hidden-xs" data-remote="true" method="post">
+                    <div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+                    <input name='authenticity_token' type='hidden' value='UHjWf0HJhp0c8ulfz8KSSdkA/5XvKJLwyCRdIr4Kbtc='>
+                    <input name='product_id' type='hidden' value='846'>
+                    <input class='shopping-cart-button' type='submit' value=''>
+                </form>
+
+            </div>
+            <div class='chinese-name'>
+                <a href='/cities/beijing/categories/vegan/products/vegan-mini-cupcake-set'>
+                    <h2 class='product-set-link'>素食迷你纸杯礼盒</h2>
+                </a>
+                <span class='size-and-price'>
+礼盒
+￥199
+</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class='pop_city_select' id='set_current_city'>
+    <div class='hidden-xs col-md-4 col-sm-4 content_left'>
+        <img alt="Logo" class="img-responsive" src="/assets/logo-90809b5a5c952f24ea2c5fb65319cbf1.png" />
+        <img alt="Brand icons" class="img-responsive" src="/assets/brand-icons-b7a42d80596318922d6f6fb848166249.png" />
+    </div>
+    <div class='hidden-xs col-md-8 col-sm-8 content_right'>
+        <div class='title'>WELCOME</div>
+        <div class='cont'>欢迎来到派悦坊</div>
+        <p>目前我们提供以下城市的配送服务，请根据您的收货地址选择：</p>
+        <div class='pc-content col-md-12 col-sm-12 pantry-padding-0px'>
+            <div class='col-md-3 col-sm-3 city_list pc-currnet-city' data='beijing'>
+                <div class='btn city_select current_city'>北京</div>
+            </div>
+            <div class='col-md-3 col-sm-3 city_list pc-currnet-city' data='shanghai'>
+                <div class='btn city_select'>上海</div>
+            </div>
+            <div class='col-md-3 col-sm-3 city_list pc-currnet-city' data='tianjin'>
+                <div class='btn city_select'>天津</div>
+            </div>
+            <div class='col-md-3 col-sm-3 city_list pc-currnet-city' data='hangzhou'>
+                <div class='btn city_select'>杭州</div>
+            </div>
+        </div>
+    </div>
+    <div class='visible-xs content_title'>
+        <span class='fa fa-map-marker'></span> 请选择您的收货地址
+    </div>
+    <div class='visible-xs content row'>
+        <div class='col-xs-3 city_list'>
+            <div class='btn city_select current_city' data='beijing'>北京</div>
+        </div>
+        <div class='col-xs-3 city_list'>
+            <div class='btn city_select' data='shanghai'>上海</div>
+        </div>
+        <div class='col-xs-3 city_list'>
+            <div class='btn city_select' data='tianjin'>天津</div>
+        </div>
+        <div class='col-xs-3 city_list'>
+            <div class='btn city_select' data='hangzhou'>杭州</div>
+        </div>
+    </div>
+    <div class='visible-xs content_footer'>
+        <div class='btn setup_current_city' id='mobile_setup_current_city'>开始购物</div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        Pantrysbest.SwiperPantry.init();
+    });
+</script>
+<div style='height: 25px'></div>
+<div class='footer text-muted'>
+    <div class='container footer-container'>
+        <div class='row'>
+            <div class='col-md-12 col-sm-12 hidden-xs'>
+                <div class='col-md-5 col-sm-5'>
+                    <div class='col-md-12 col-sm-12 pc-left'>
+                        <div class='info'>
+                            <span class='fa fa-phone fa_icon'></span>
+                            <span>4008-3-14159</span>
+                        </div>
+                        <div class='info'>
+                            <span class='fa fa-envelope fa_icon'></span>
+                            <span>order@pantrysbest.com</span>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-md-2 col-sm-2 pc-center'>
+                    <a class='col-md-6 col-sm-6' href='http://weibo.com/piehouse' target='_blank'><i class="fa fa-weibo fa-2x fa_icon"></i></a>
+                    <a class='col-md-6 col-sm-6 wx-a' href='javascript:;' id='footer_wx_img'>
+                        <i class="fa fa-weixin fa-2x fa_icon"></i>
+                        <img alt="Wx code" class="img-responsive wx-code" id="footer_wx_code" src="/assets/wx_code-91f71945c25d7dfe496f931bcff976bf.png" />
+                    </a>
+                </div>
+                <div class='col-md-5 col-sm-5'><img alt="Brand icons" class="img-responsive right-img" src="/assets/brand-icons-b7a42d80596318922d6f6fb848166249.png" /></div>
+                <div class='col-md-12 col-sm-12 pc-addr'>
+                    <div class='info'>北京市朝阳区神路街39号10幢3层4段92-93</div>
+                    <div class='info'>Copyright 2010-2017 派悦坊，Ltd 京ICP备12046340</div>
+                </div>
+            </div>
+        </div>
+        <div class='visible-xs' id='phone-number'>
+            <a href='tel:4008314159'>
+                <i class="fa fa-phone"></i> 4008-3-14159
+            </a>
+        </div>
+        <div class='visible-xs' id='icp'>
+            Copyright 2010-2017 派悦坊，Ltd 京ICP备12046340
+        </div>
+    </div>
+</div>
+<div style='height: 20px'></div>
+<div aria-hidden='true' aria-labelledby='myModalLabel' class='modal fade' id='login-modal' role='dialog' tabindex='-1'>
+    <div class='modal-dialog'>
+        <div class='modal-content'></div>
+    </div>
+</div>
+<!-- / baidu统计的代码 -->
+<script>
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?644047433451f3c44613b4c1c0bdfc9b";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<!-- /%script -->
+<!-- /  var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://"); -->
+<!-- /  document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F047cd2678d05616ac86ca9ee9529034c' type='text/javascript'%3E%3C/script%3E")); -->
+<!-- /:javascript -->
+<!-- /  var _mvq = window._mvq || []; -->
+<!-- /  window._mvq = _mvq; -->
+<!-- /  _mvq.push(['$setAccount', 'm-141528-0']); -->
+<!-- /  _mvq.push(['$logConversion']); -->
+<!-- /  (function() { -->
+<!-- /    var mvl = document.createElement('script'); -->
+<!-- /    mvl.type = 'text/javascript'; mvl.async = true; -->
+<!-- /    mvl.src = ('https:' == document.location.protocol ? 'https://static-ssl.mediav.com/mvl.js' : 'http://static.mediav.com/mvl.js'); -->
+<!-- /    var s = document.getElementsByTagName('script')[0]; -->
+<!-- /    s.parentNode.insertBefore(mvl, s); -->
+<!-- /  })(); -->
+<script>
+    var _paiyuer = _paiyuer || [];
+    _paiyuer.push(['i', '7j-Dyf']);
+    _paiyuer.push(['domain', 't.paiyue.com']);
+    (function(d) {
+        var s = d.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = ('https:' === location.protocol ? 'https://f.paiyue.com' : 'http://f.py0.cc') + '/j/3/r.js';
+        var e = d.body.getElementsByTagName('script')[0];
+        e.parentNode.insertBefore(s, e);
+    })(document);
+</script>
+{%endblock %}
